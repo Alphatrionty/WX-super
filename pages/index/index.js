@@ -23,7 +23,7 @@ Page({
   onLoad: function (options) {
 
     // var reqTask = wx.request({
-    //   url: 'http://152.136.185.210:8000/api/h8/home/multidata',
+    //   url: 'http://152.136.185.210:8000/api/n3/home/multidata',
     //   success: (result) => {
     //     console.log(result)
     //     this.setData({
@@ -36,7 +36,7 @@ Page({
     this.getFloorList();
   },
   getSwiperList() {
-    request({ url: "http://152.136.185.210:8000/api/h8/home/multidata" })
+    request({ url: "http://152.136.185.210:8000/api/n3/home/multidata" })
       .then(result => {
         this.setData({
           swiperList: result.data.data.banner.list

@@ -19,6 +19,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    /**
+   * 1 先判断一下本地存储中有没有旧的数据
+   * 2 没用旧数据 直接发送请求
+   * 3 有旧数据 同时旧数据没有过期 使用本地的旧数据
+   */
     this.getCates();
   },
 
@@ -39,6 +44,19 @@ Page({
         rightContent
       })
     })
+  },
+  // 左侧菜单的点击事件
+  handleItemTap(e){
+    // 获取被点击标题上的索引
+    // 给data中的currentIndex赋值
+    // 根据不同 的索引渲染右侧的商品内容
+    const {index}=e.currentTarget.dataset;
+    
+    let rightContent=this.Cates[index].children;
+      this.setData({
+        currentIndex:index,
+        rightContent
+      })
   },
 
   /**
